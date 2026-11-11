@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+/* ============================================================
+   Plumbing: scroll, cursors, band backgrounds, textures, hero
+   stand-ins. You shouldn't need to edit this to restyle the site;
+   the knobs live in app/theme.css (look), data/site.json (copy)
+   and lib/tune.ts (motion).
+
+   Look from era-residence.com, structure and scroll moments from
+   unitedcarriers.com.
+   ============================================================ */
+
+html {
+  background: var(--brand-forest);
+  /* 1rem = 16px. Type sizes below are rem off this base. */
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  line-height: var(--leading-text);
+  font-weight: var(--weight-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Every band paints its own token background. In the base layer so any
+   bg-* utility on the same element still wins. */
+@layer base {
+  [data-theme] {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+  }
+
+  /* Tailwind v4's preflight resets buttons to cursor: default. Everything
+     clickable gets the finger; utilities (cursor-grab) still override. */
+  a[href],
+  button,
+  [role="button"],
+  summary,
+  select,
+  label[for],
+  input[type="submit"],
+  input[type="button"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}
+
+/* rPET spunbond weave: tiny diamond dots on a diagonal lattice, the
+   texture of a non-woven bag up close. An 8px SVG tile used as a MASK over
+   the band's ink, so it recolors with tokens (faint navy on cream, faint
+   cream on forest). Drawn on ::before behind the content.
+
+   .weave  section texture: add to any band (Process, Clients, Footer use it)
+   .hatch  media placeholder surface (Media.tsx), slightly stronger, and
+           gone once a real image covers it. In the components layer so
+           utilities like `absolute` still win over its position: relative. */
+@layer components {
+  .weave,
+  .hatch {
+    position: relative;
+    isolation: isolate;
+    --weave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2 1.05 2.95 2 2 2.95 1.05 2Z M6 5.05 6.95 6 6 6.95 5.05 6Z'/%3E%3C/svg%3E");
+  }
+  .weave::before,
+  .hatch::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
+    background-color: var(--color-on-surface);
+    opacity: var(--weave-opacity);
+    -webkit-mask-image: var(--weave);
+    mask-image: var(--weave);
+    -webkit-mask-size: 8px 8px;
+    mask-size: 8px 8px;
+  }
+  .hatch {
+    --weave-opacity: var(--hatch-opacity);
+  }
+}
+
+/* Hero stand-ins until the drone loop and cloud art land
+   (components/Hero.tsx). The ocean drifts so the zoom can be judged; the
+   clouds are soft white blobs with real transparency. */
+.ocean-placeholder {
+  background:
+    radial-gradient(ellipse 40% 30% at 30% 40%, #2f7f9a66, transparent 70%),
+    radial-gradient(ellipse 35% 25% at 70% 65%, #1f6a8a55, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 20%, #3c93a855, transparent 70%),
+    linear-gradient(160deg, #0c3a52, #0a4d66 45%, #0b5f78);
+  background-size: 160% 160%, 140% 140%, 180% 180%, 100% 100%;
+  animation: ocean-drift 18s ease-in-out infinite alternate;
+}
+/* Logo ticker (components/LogoTicker.tsx): two identical copies of the
+   row; sliding left by half the track (one copy) loops with no seam. */
+.ticker-track {
+  animation: ticker var(--ticker-duration, 40s) linear infinite;
+}
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+@keyframes ocean-drift {
+  from { background-position: 0% 0%, 100% 100%, 50% 0%, 0 0; }
+  to { background-position: 100% 60%, 0% 40%, 50% 100%, 0 0; }
+}
+.cloud-placeholder {
+  filter: blur(22px);
+  background:
+    radial-gradient(closest-side, #fff, #ffffff00) 8% 12% / 38% 30% no-repeat,
+    radial-gradient(closest-side, #fff, #ffffff00) 52% 6% / 44% 26% no-repeat,
+    radial-gradient(closest-side, #fff, #ffffff00) 92% 22% / 34% 30% no-repeat,
+    radial-gradient(closest-side, #fff, #ffffff00) 28% 44% / 40% 28% no-repeat,
+    radial-gradient(closest-side, #fff, #ffffff00) 74% 52% / 42% 32% no-repeat,
+    radial-gradient(closest-side, #fff, #ffffff00) 6% 78% / 36% 30% no-repeat,
+    radial-gradient(closest-side, #fff, #ffffff00) 46% 88% / 46% 28% no-repeat,
+    radial-gradient(closest-side, #fff, #ffffff00) 90% 90% / 36% 30% no-repeat;
+}
+/* Same blobs, rearranged per deck so gaps don't line up */
+.cloud-placeholder-2 { transform: scaleX(-1) rotate(12deg); }
+.cloud-placeholder-3 { transform: rotate(180deg); filter: blur(16px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ocean-placeholder { animation: none; }
+}

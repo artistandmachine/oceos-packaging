@@ -1,0 +1,194 @@
+{
+  "_notes": [
+    "All copy lives here. Components only read from this file (via lib/site.ts).",
+    "Content is the OCEOS Packaging site, used as sample copy for the OCEOS styles.",
+    "A \"|\" inside a headline string inserts a wide gap between words (components/Gap.tsx)."
+  ],
+  "meta": {
+    "title": "Website Templates | Studio A&M",
+    "description": "Pick a style for each section of your site.",
+    "url": "https://artistandmachine.github.io/website-templates"
+  },
+  "styles": {
+    "navLabel": "Style",
+    "heroLabel": "Hero"
+  },
+  "company": {
+    "name": "OCEOS Packaging",
+    "short": "OCEOS",
+    "wordmark": "/brand/logoOceosWordmark.svg",
+    "url": "https://oceospackaging.com",
+    "email": "hello@oceospackaging.com",
+    "address": [
+      "U.S. based",
+      "Serving global clients"
+    ],
+    "instagram": "#",
+    "linkedin": "#"
+  },
+  "preloader": {
+    "products": [
+      "rPET Non-Woven",
+      "Non-Woven PP",
+      "Ultrasonic rPET",
+      "Stitched Bags"
+    ],
+    "stages": [
+      "Collection",
+      "Recycling",
+      "Fabric",
+      "Manufacturing",
+      "Distribution",
+      "Reuse and return"
+    ]
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "#top"
+    },
+    {
+      "label": "Next",
+      "href": "#next"
+    }
+  ],
+  "hero": {
+    "eyebrow": "We manufacture",
+    "titleTop": "Reusable",
+    "script": "shopping bags",
+    "since": "An industry leader\nsince 2007",
+    "sub": "On a mission to reduce ocean-bound plastic through patented processes and responsible manufacturing.",
+    "video": {
+      "webm": "/videos/hero/ocean-firefly.webm",
+      "mp4": "/videos/hero/ocean-firefly.mp4",
+      "poster": "/images/hero/ocean-firefly-poster.webp"
+    },
+    "pan": {
+      "src": "/images/hero/oceos-genai.webp",
+      "small": "/images/hero/oceos-genai-sm.webp"
+    },
+    "clouds": [
+      {
+        "src": "/images/hero/cloud-01.webp"
+      },
+      {
+        "src": "/images/hero/cloud-02.webp"
+      },
+      {
+        "src": "/images/hero/cloud-03.webp"
+      }
+    ]
+  },
+  "clients": {
+    "wallLabel": "Brand partnerships",
+    "logos": [
+      {
+        "name": "Target",
+        "logo": "/brand/clients/target.svg"
+      },
+      {
+        "name": "Walmart",
+        "logo": "/brand/clients/walmart.svg"
+      },
+      {
+        "name": "Whole Foods Market",
+        "logo": "/brand/clients/whole-foods-market.svg"
+      },
+      {
+        "name": "Aldi",
+        "logo": "/brand/clients/aldi.svg"
+      },
+      {
+        "name": "Lidl",
+        "logo": "/brand/clients/lidl.svg"
+      },
+      {
+        "name": "Tesco",
+        "logo": "/brand/clients/tesco.svg"
+      },
+      {
+        "name": "Sainsbury's",
+        "logo": "/brand/clients/sainsburys.svg"
+      },
+      {
+        "name": "Waitrose",
+        "logo": "/brand/clients/waitrose.svg"
+      },
+      {
+        "name": "M&S",
+        "logo": "/brand/clients/m-and-s.svg"
+      },
+      {
+        "name": "John Lewis",
+        "logo": "/brand/clients/john-lewis.svg"
+      },
+      {
+        "name": "Woolworths",
+        "logo": "/brand/clients/woolworths.svg"
+      },
+      {
+        "name": "Sprouts",
+        "logo": "/brand/clients/sprouts.svg"
+      },
+      {
+        "name": "Sam's Club",
+        "logo": "/brand/clients/sams-club.svg"
+      },
+      {
+        "name": "Lawson Station",
+        "logo": "/brand/clients/lawson-station.svg"
+      },
+      {
+        "name": "Family Mart",
+        "logo": "/brand/clients/family-mart.svg"
+      },
+      {
+        "name": "Chanel",
+        "logo": "/brand/clients/chanel.svg"
+      },
+      {
+        "name": "Dior",
+        "logo": "/brand/clients/dior.svg"
+      },
+      {
+        "name": "Gucci",
+        "logo": "/brand/clients/gucci.svg"
+      },
+      {
+        "name": "Valentino",
+        "logo": "/brand/clients/valentino.svg"
+      },
+      {
+        "name": "Balenciaga",
+        "logo": "/brand/clients/balenciaga.svg"
+      },
+      {
+        "name": "Lacoste",
+        "logo": "/brand/clients/lacoste.svg"
+      },
+      {
+        "name": "Kate Spade New York",
+        "logo": "/brand/clients/kate-spade-new-york.svg"
+      },
+      {
+        "name": "Max & Co.",
+        "logo": "/brand/clients/max-and-co.svg"
+      }
+    ]
+  },
+  "next": {
+    "label": "Coming next",
+    "title": "More sections soon"
+  },
+  "contact": {
+    "heading": "Let's start a conversation",
+    "body": "Our team will work with you through every step of the process, from design to delivery. Tell us about your project and we'll get back to you shortly.",
+    "success": "Thanks. Your email app should have opened with everything filled in. Hit send and the team will take it from there.",
+    "sent": "Thanks. Your message is with the team and we'll be in touch shortly.",
+    "error": "That didn't go through. Please email us directly at",
+    "form": {
+      "endpoint": "",
+      "fields": {}
+    }
+  }
+}
